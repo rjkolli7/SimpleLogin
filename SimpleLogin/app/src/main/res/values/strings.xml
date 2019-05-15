@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">SimpleLogin</string>
+
+    <!-- Strings related to titles -->
+    <string name="title_activity_login">Login</string>
+    <string name="title_activity_user_list">Users</string>
+    <string name="title_activity_user_detail">User Details</string>
+
+    <!-- Strings related to login -->
+    <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="email">Email</string>
+    <string name="enter_email">example@email.com</string>
+    <string name="password">Password</string>
+    <string name="password_hint">••••••••••</string>
+    <string name="login">Login</string>
 </resources>

@@ -4,6 +4,10 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: 'kotlin-kapt'
+
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -20,15 +24,64 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    dataBinding {
+        enabled = true
+    }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    // android support libraries
+    implementation "androidx.appcompat:appcompat:$rootProject.ext.androidxSupportVersion"
+    implementation "androidx.core:core-ktx:$rootProject.ext.androidxCoreKTXVersion"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.ext.constraintLayoutVersion"
+    implementation "com.google.android.material:material:$rootProject.ext.materialVersion"
+
+    // dp,sp libraries
+    implementation 'com.intuit.sdp:sdp-android:1.0.6'
+    implementation 'com.intuit.ssp:ssp-android:1.0.6'
+
+    // navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$navigation"
+    implementation "androidx.navigation:navigation-ui-ktx:$navigation"
+
+    // test
     implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
-    implementation 'androidx.core:core-ktx:1.2.0-alpha01'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.0-alpha4'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha4'
+    implementation 'com.google.android.material:material:1.0.0-beta01'
+    testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    androidTestImplementation "androidx.test:runner:$rootProject.ext.testRunnerVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.ext.espressoCoreVersion"
+
+    // image
+    implementation "com.github.bumptech.glide:glide:$rootProject.glideVersion"
+    implementation "com.github.chrisbanes:PhotoView:$rootProject.photoView"
+
+    // RX libraries
+    implementation "io.reactivex.rxjava2:rxjava:$rootProject.ext.rxjavaVersion"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.ext.rxandroidVersion"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.ext.rxkotlinVersion"
+
+    // network
+    implementation("com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion") {
+        exclude module: 'okhttp'
+    }
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
+    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.ext.retrofitAdapterVersion"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okHttpLogging"
+    implementation "com.squareup.okhttp3:okhttp:$rootProject.ext.okHttp"
+
+    // life cycle
+    implementation "androidx.lifecycle:lifecycle-runtime:$rootProject.ext.lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.ext.lifecycleVersion"
+    annotationProcessor "androidx.lifecycle:lifecycle-compiler:$rootProject.ext.lifecycleVersion"
+
+    // dagger
+    implementation "com.google.dagger:dagger:$rootProject.ext.dagger2Version"
+    kapt "com.google.dagger:dagger-compiler:$rootProject.ext.dagger2Version"
+    implementation "com.google.dagger:dagger-android:$rootProject.ext.dagger2Version"
+    kapt "com.google.dagger:dagger-android-processor:$rootProject.ext.dagger2Version"
+    implementation "com.google.dagger:dagger-android-support:$rootProject.ext.dagger2Version"
+    compileOnly "org.glassfish:javax.annotation:$rootProject.ext.glassFishAnnotationVersion"
 }
