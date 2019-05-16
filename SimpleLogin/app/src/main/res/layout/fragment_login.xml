@@ -34,6 +34,7 @@
                 android:lines="1"
                 android:inputType="textEmailAddress"
                 android:textColor="@android:color/black"
+                app:textChangedListener="@{model.emailTextWatcher}"
                 android:hint="@string/enter_email"
                 android:padding="@dimen/_6sdp"
                 android:background="@drawable/bg_form_edt_border"
@@ -65,10 +66,41 @@
                 android:textColor="@android:color/black"
                 android:hint="@string/password_hint"
                 android:padding="@dimen/_6sdp"
+                app:textChangedListener="@{model.passwordTextWatcher}"
                 android:background="@drawable/bg_form_edt_border"
                 android:textSize="@dimen/_14ssp"
                 android:layout_marginTop="@dimen/_8sdp"
                 app:layout_constraintTop_toBottomOf="@id/login_pwd_title_tv"
+                app:layout_constraintStart_toEndOf="@id/login_left_vg"
+                app:layout_constraintEnd_toStartOf="@id/login_right_vg"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/login_country_title_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:textColor="@android:color/black"
+                android:text="@string/country"
+                android:textSize="@dimen/_14ssp"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:layout_constraintTop_toBottomOf="@id/login_pwd_edt"
+                app:layout_constraintStart_toEndOf="@id/login_left_vg"
+                app:layout_constraintEnd_toStartOf="@id/login_right_vg"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/login_country_tv"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:lines="1"
+                android:inputType="textPassword"
+                android:textColor="@android:color/black"
+                android:hint="@string/select_country"
+                android:padding="@dimen/_6sdp"
+                app:textChangedListener="@{model.passwordTextWatcher}"
+                android:background="@drawable/bg_form_edt_border"
+                android:textSize="@dimen/_14ssp"
+                android:layout_marginTop="@dimen/_8sdp"
+                app:layout_constraintTop_toBottomOf="@id/login_country_title_tv"
                 app:layout_constraintStart_toEndOf="@id/login_left_vg"
                 app:layout_constraintEnd_toStartOf="@id/login_right_vg"/>
 
@@ -83,7 +115,7 @@
                 app:onViewClickListener="@{model.onLoginButtonClick}"
                 android:background="@drawable/bg_button"
                 android:textColor="@android:color/white"
-                app:layout_constraintTop_toBottomOf="@id/login_pwd_edt"
+                app:layout_constraintTop_toBottomOf="@id/login_country_tv"
                 app:layout_constraintStart_toEndOf="@id/login_button_left_vg"
                 app:layout_constraintEnd_toStartOf="@id/login_button_right_vg"
                 android:layout_marginTop="@dimen/_20sdp"/>

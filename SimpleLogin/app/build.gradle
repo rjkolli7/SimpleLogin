@@ -17,7 +17,9 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "BASE_URL", "\"https://jsonplaceholder.typicode.com\"")
     }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -47,9 +49,13 @@ dependencies {
     implementation "androidx.navigation:navigation-fragment-ktx:$navigation"
     implementation "androidx.navigation:navigation-ui-ktx:$navigation"
 
+    // room
+    implementation "androidx.room:room-runtime:2.1.0-beta01"
+    kapt "androidx.room:room-compiler:2.1.0-beta01"
+
     // test
-    implementation 'androidx.appcompat:appcompat:1.0.0-beta01'
-    implementation 'com.google.android.material:material:1.0.0-beta01'
+    implementation "androidx.appcompat:appcompat:$rootProject.ext.androidxSupportVersion"
+    implementation "com.google.android.material:material:$rootProject.ext.materialVersion"
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
     androidTestImplementation "androidx.test:runner:$rootProject.ext.testRunnerVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.ext.espressoCoreVersion"
@@ -64,13 +70,10 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.ext.rxkotlinVersion"
 
     // network
-    implementation("com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion") {
-        exclude module: 'okhttp'
-    }
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.ext.retrofitVersion"
     implementation "com.squareup.retrofit2:converter-gson:$rootProject.ext.retrofitVersion"
     implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rootProject.ext.retrofitAdapterVersion"
     implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.ext.okHttpLogging"
-    implementation "com.squareup.okhttp3:okhttp:$rootProject.ext.okHttp"
 
     // life cycle
     implementation "androidx.lifecycle:lifecycle-runtime:$rootProject.ext.lifecycleVersion"

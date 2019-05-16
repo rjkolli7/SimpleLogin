@@ -2,7 +2,7 @@
 
 buildscript {
     ext.kotlin_version = '1.3.21'
-    ext.navigation = "2.1.0-alpha02"
+    ext.navigation = "2.1.0-alpha03"
     repositories {
         google()
         jcenter()
@@ -41,7 +41,7 @@ ext {
 
     // App dependencies
     androidxSupportVersion = "1.0.2"
-    androidxCoreKTXVersion = "1.0.1"
+    androidxCoreKTXVersion = "1.0.2"
     materialVersion = "1.0.0"
 
     // glid
@@ -64,7 +64,7 @@ ext {
 
     // RX Versions
     rxjavaVersion = "2.1.12"
-    rxandroidVersion = "2.1.0"
+    rxandroidVersion = "2.1.1"
     rxkotlinVersion = "2.2.0"
 
     // lifecycle versions

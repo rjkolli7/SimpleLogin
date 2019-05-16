@@ -1,18 +1,36 @@
 <resources>
-    <string name="app_name">SimpleLogin</string>
+    <string name="app_name">Simple Login</string>
 
     <!-- Strings related to titles -->
-    <string name="title_activity_login">Login</string>
-    <string name="title_activity_user_list">Users</string>
-    <string name="title_activity_user_detail">User Details</string>
+    <string name="user_list">Users</string>
+    <string name="user_detail">User Details</string>
 
     <!-- Strings related to login -->
     <string name="error_invalid_email">This email address is invalid</string>
+    <string name="error_incorrect_email">This email address is incorrect</string>
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="enter_password">Please enter password</string>
+    <string name="enter_email_address">Please enter email address</string>
     <string name="email">Email</string>
     <string name="enter_email">example@email.com</string>
     <string name="password">Password</string>
     <string name="password_hint">••••••••••</string>
     <string name="login">Login</string>
+    <string name="success_login">Successfully Login</string>
+    <string name="select_country">Select Country</string>
+    <string name="country">Country</string>
+
+    <string-array name="emails">
+        <item>sincere@april.biz</item>
+        <item>shanna@melissa.tv</item>
+        <item>nathan@yesenia.net</item>
+        <item>julianne.OConner@kory.org</item>
+        <item>lucio_hettinger@annie.ca</item>
+        <item>karley_dach@jasper.info</item>
+        <item>telly.hoeger@billy.biz</item>
+        <item>sherwood@rosamond.me</item>
+        <item>chaim_mcdermott@dana.io</item>
+        <item>rey.padberg@karina.biz</item>
+    </string-array>
 </resources>
