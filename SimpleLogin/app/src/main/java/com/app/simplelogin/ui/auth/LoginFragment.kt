@@ -12,9 +12,11 @@ import androidx.lifecycle.ViewModelProviders
 import com.app.simplelogin.R
 import com.app.simplelogin.databinding.FragmentLoginBinding
 import com.app.simplelogin.di.injector.Injectable
+import com.app.simplelogin.testing.OpenForTesting
 import com.app.simplelogin.ui.auth.viewmodel.LoginViewModel
 import javax.inject.Inject
 
+@OpenForTesting
 class LoginFragment : Fragment(), Injectable {
 
     @Inject

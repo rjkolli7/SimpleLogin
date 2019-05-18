@@ -2,6 +2,7 @@ package com.app.simplelogin.di.module
 
 import com.app.simplelogin.BuildConfig
 import com.app.simplelogin.network.ApiInterface
+import com.app.simplelogin.testing.OpenForTesting
 import com.google.gson.Gson
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import dagger.Module
@@ -13,6 +14,7 @@ import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module(includes = [ViewModelModule::class])
+@OpenForTesting
 class AppModule {
 
     @Provides

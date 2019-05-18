@@ -13,11 +13,13 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.NavHostFragment
 import com.app.simplelogin.R
 import com.app.simplelogin.network.model.User
+import com.app.simplelogin.testing.OpenForTesting
 import com.app.simplelogin.utils.dismissKeyboard
 import io.reactivex.disposables.CompositeDisposable
 import java.lang.NullPointerException
 
-open class BaseViewModel : ViewModel() {
+@OpenForTesting
+class BaseViewModel : ViewModel() {
 
     var dialog: Dialog? = null
 

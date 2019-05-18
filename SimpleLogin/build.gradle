@@ -8,11 +8,13 @@ buildscript {
         google()
         jcenter()
         maven { url "https://jitpack.io" }
+        maven { url "https://kotlin.bintray.com/kotlinx/" }
         mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.3.2'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$navigation"
         classpath "com.google.gms:google-services:$googleServices"
         // NOTE: Do not place your application dependencies here; they belong
@@ -25,6 +27,7 @@ allprojects {
         google()
         jcenter()
         maven { url "https://jitpack.io" }
+        maven { url "https://kotlin.bintray.com/kotlinx/" }
         mavenCentral()
     }
 }

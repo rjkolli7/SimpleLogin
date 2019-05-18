@@ -8,6 +8,13 @@ apply plugin: 'kotlin-kapt'
 
 apply plugin: 'androidx.navigation.safeargs.kotlin'
 
+apply plugin: 'kotlin-allopen'
+
+allOpen {
+    // allows mocking for classes w/o directly opening them for release builds
+    annotation 'com.app.simplelogin.testing.OpenClass'
+}
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -30,6 +37,16 @@ android {
 
     dataBinding {
         enabled = true
+    }
+
+    testOptions {
+        execution 'ANDROIDX_TEST_ORCHESTRATOR'
+        animationsDisabled true
+        unitTests.includeAndroidResources = true
+        unitTests.returnDefaultValues = true
+        unitTests.all {
+            systemProperty 'robolectric.offline', 'true'
+        }
     }
 }
 
@@ -57,10 +74,16 @@ dependencies {
     implementation "androidx.room:room-runtime:2.1.0-beta01"
     kapt "androidx.room:room-compiler:2.1.0-beta01"
 
-    // test
-    implementation "androidx.appcompat:appcompat:$rootProject.ext.androidxSupportVersion"
-    implementation "com.google.android.material:material:$rootProject.ext.materialVersion"
+    // unit test
+    testImplementation "org.robolectric:robolectric:4.2"
+    testImplementation 'org.hamcrest:hamcrest-all:1.3'
     testImplementation "junit:junit:$rootProject.ext.junitVersion"
+    testImplementation 'org.mockito:mockito-core:2.25.0'
+    testImplementation 'androidx.test:core:1.1.0'
+    testImplementation 'com.squareup.okhttp3:mockwebserver:3.8.1'
+    testImplementation 'androidx.arch.core:core-testing:2.0.1'
+
+    // android test
     androidTestImplementation "androidx.test:runner:$rootProject.ext.testRunnerVersion"
     androidTestImplementation "androidx.test.espresso:espresso-core:$rootProject.ext.espressoCoreVersion"
 

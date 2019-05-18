@@ -3,11 +3,13 @@ package com.app.simplelogin.ui.main.user.viewmodel
 import android.view.View
 import androidx.lifecycle.MutableLiveData
 import com.app.simplelogin.network.model.User
+import com.app.simplelogin.testing.OpenForTesting
 import com.app.simplelogin.ui.base.BaseViewModel
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import javax.inject.Inject
 
+@OpenForTesting
 class UserDetailsViewModel @Inject constructor() : BaseViewModel() {
 
     private val userDetails: MutableLiveData<User> = MutableLiveData()
@@ -58,8 +60,6 @@ class UserDetailsViewModel @Inject constructor() : BaseViewModel() {
             }
         }
     }
-
-
 
     fun addMarker() : MarkerOptions? {
         var markerOptions: MarkerOptions? = null

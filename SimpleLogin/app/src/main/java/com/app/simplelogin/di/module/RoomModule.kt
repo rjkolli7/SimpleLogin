@@ -8,12 +8,14 @@ import com.app.simplelogin.R
 import com.app.simplelogin.db.AppDb
 import com.app.simplelogin.db.Login
 import com.app.simplelogin.db.LoginDao
+import com.app.simplelogin.testing.OpenForTesting
 import dagger.Module
 import dagger.Provides
 import javax.inject.Named
 import javax.inject.Singleton
 
 @Module
+@OpenForTesting
 class RoomModule {
 
     lateinit var appDb: AppDb
@@ -32,14 +34,11 @@ class RoomModule {
     fun provideDb(@Named("app") app: App) : AppDb {
         getDb(app)
         val password = "abc@12345"
-        app.resources
-            .getStringArray(R.array.emails)
-            .map { email ->
+        app.resources?.getStringArray(R.array.emails)?.map { email ->
                 appDb.runInTransaction {
                     provideLoginDao(appDb).createLoginIfNotExists(
                         Login(email = email, password = password)
                     )
-                    provideLoginDao(appDb).insert(Login(email = email, password = password))
                 }
             }
         return appDb
