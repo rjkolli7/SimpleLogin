@@ -1,10 +1,197 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:bind="http://schemas.android.com/apk/res-auto">
     <data>
+        <variable
+                name="model"
+                type="com.app.simplelogin.ui.main.user.viewmodel.UserDetailsViewModel"/>
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+        >
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ub_profile_iv"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:src="@drawable/ic_person"
+                    app:tint="@color/appColorBlack70"
+                    app:layout_constraintStart_toEndOf="@id/ud_left_gl1"
+                    app:layout_constraintTop_toBottomOf="@id/ud_top_gl1"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/ud_user_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    app:layout_constraintStart_toEndOf="@id/ub_profile_iv"
+                    app:layout_constraintTop_toTopOf="@+id/ub_profile_iv"
+                    app:layout_constraintBottom_toBottomOf="@+id/ub_profile_iv"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/appColorBlack70"
+                    android:text="@string/profile"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/ud_name_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginLeft="@dimen/_3sdp" android:layout_marginStart="@dimen/_3sdp"
+                    app:layout_constraintStart_toEndOf="@id/ud_left_gl1"
+                    app:layout_constraintEnd_toStartOf="@id/ud_right_gl1"
+                    app:layout_constraintTop_toBottomOf="@id/ud_user_title_tv"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@android:color/black"
+                    android:text="@{model.getUserDetails().name}"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/ud_email_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/ud_name_tv"
+                    app:layout_constraintTop_toBottomOf="@id/ud_name_tv"
+                    app:layout_constraintEnd_toStartOf="@id/ud_right_gl1"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/appColorBlack70"
+                    android:text="@{model.getUserDetails().email}"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/ud_phone_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="@id/ud_email_tv"
+                    app:layout_constraintTop_toBottomOf="@id/ud_email_tv"
+                    app:layout_constraintEnd_toStartOf="@id/ud_right_gl1"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/appColorBlack70"
+                    android:text="@{model.getUserDetails().phone}"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/ud_website_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toStartOf="@id/ud_right_gl1"
+                    app:layout_constraintStart_toStartOf="@id/ud_phone_tv"
+                    app:layout_constraintTop_toBottomOf="@id/ud_phone_tv"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/appColorBlack70"
+                    android:text="@{model.getUserDetails().website}"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ub_company_iv"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:src="@drawable/ic_company"
+                    app:tint="@color/appColorBlack70"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    app:layout_constraintStart_toEndOf="@id/ud_left_gl1"
+                    app:layout_constraintTop_toBottomOf="@id/ud_website_tv"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/ud_user_company_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    app:layout_constraintStart_toEndOf="@id/ub_company_iv"
+                    app:layout_constraintTop_toTopOf="@+id/ub_company_iv"
+                    app:layout_constraintBottom_toBottomOf="@+id/ub_company_iv"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/appColorBlack70"
+                    android:text="@string/company"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/ud_company_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginLeft="@dimen/_3sdp"
+                    android:layout_marginStart="@dimen/_3sdp"
+                    app:layout_constraintEnd_toStartOf="@id/ud_right_gl1"
+                    app:layout_constraintStart_toEndOf="@id/ud_left_gl1"
+                    app:layout_constraintTop_toBottomOf="@id/ud_user_company_title_tv"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/appColorBlack70"
+                    android:text="@{model.company}"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ub_address_iv"
+                    android:layout_width="@dimen/_18sdp"
+                    android:layout_height="@dimen/_18sdp"
+                    android:src="@drawable/ic_location"
+                    app:tint="@color/appColorBlack70"
+                    android:layout_marginTop="@dimen/_12sdp"
+                    app:layout_constraintStart_toEndOf="@id/ud_left_gl1"
+                    app:layout_constraintTop_toBottomOf="@id/ud_company_tv"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/ud_user_address_title_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/_8sdp"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    app:layout_constraintStart_toEndOf="@id/ub_address_iv"
+                    app:layout_constraintTop_toTopOf="@+id/ub_address_iv"
+                    app:layout_constraintBottom_toBottomOf="@+id/ub_address_iv"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/appColorBlack70"
+                    android:text="@string/address"/>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/ud_address_tv"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    android:layout_marginLeft="@dimen/_3sdp"
+                    android:layout_marginStart="@dimen/_3sdp"
+                    app:layout_constraintEnd_toStartOf="@id/ud_right_gl1"
+                    app:layout_constraintStart_toEndOf="@id/ud_left_gl1"
+                    app:layout_constraintTop_toBottomOf="@id/ud_user_address_title_tv"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="@color/appColorBlack70"
+                    android:text="@{model.address}"/>
+
+            <fragment
+                    android:id="@+id/ud_location_map"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginBottom="@dimen/_8sdp"
+                    android:layout_marginTop="@dimen/_8sdp"
+                    app:layout_constraintStart_toEndOf="@id/ud_left_gl1"
+                    app:layout_constraintEnd_toStartOf="@id/ud_right_gl1"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/ud_address_tv"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"/>
+
+            <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:id="@+id/ud_left_gl1"
+                                                        app:layout_constraintGuide_percent="0.06"
+                                                        android:orientation="vertical"/>
+
+            <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:id="@+id/ud_right_gl1"
+                                                        app:layout_constraintGuide_percent="0.94"
+                                                        android:orientation="vertical"/>
+
+            <androidx.constraintlayout.widget.Guideline android:layout_width="wrap_content"
+                                                        android:layout_height="wrap_content"
+                                                        android:id="@+id/ud_top_gl1"
+                                                        app:layout_constraintGuide_percent="0.02"
+                                                        android:orientation="horizontal"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
 </layout>

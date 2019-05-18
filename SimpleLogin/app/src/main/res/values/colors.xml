@@ -6,4 +6,6 @@
 
     <color name="appColorBlackDeep">#1A1818</color>
     <color name="appColorGrey">#EDEEEF</color>
+    <color name="appColorBlack50">#50000000</color>
+    <color name="appColorBlack70">#70000000</color>
 </resources>

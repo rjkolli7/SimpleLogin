@@ -16,21 +16,21 @@ data class Address(
 
     @SerializedName("street")
     @Expose
-    private val street: String? = null,
+    val street: String? = null,
 
     @SerializedName("suite")
     @Expose
-    private val suite: String? = null,
+    val suite: String? = null,
 
     @SerializedName("city")
     @Expose
-    private val city: String? = null,
+    val city: String? = null,
 
     @SerializedName("zipcode")
     @Expose
-    private val zipcode: String? = null,
+    val zipcode: String? = null,
 
     @SerializedName("geo")
     @Expose
-    private val geo: Geo? = null
+    val geo: Geo? = null
 )

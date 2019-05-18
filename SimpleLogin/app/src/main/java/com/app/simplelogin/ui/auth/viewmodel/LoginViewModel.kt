@@ -1,17 +1,17 @@
 package com.app.simplelogin.ui.auth.viewmodel
 
-import android.app.Dialog
 import android.content.Context
 import android.content.Intent
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.View
-import android.widget.ProgressBar
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.MutableLiveData
 import com.app.simplelogin.R
 import com.app.simplelogin.db.LoginDao
+import com.app.simplelogin.sharedpref.SessionManager
 import com.app.simplelogin.ui.base.BaseViewModel
 import com.app.simplelogin.ui.main.MainActivity
 import com.app.simplelogin.utils.dismissKeyboard
@@ -23,6 +23,8 @@ class LoginViewModel @Inject constructor(private val loginDao: LoginDao) : BaseV
 
     var password: String? = null
     var email: String? = null
+
+    var countryValue: MutableLiveData<String> = MutableLiveData()
 
     fun passwordTextWatcher(): TextWatcher {
         return object : TextWatcher {
@@ -73,6 +75,7 @@ class LoginViewModel @Inject constructor(private val loginDao: LoginDao) : BaseV
                     showLoader(v.context)
                     v.postDelayed({
                         Toast.makeText(v.context, R.string.success_login, Toast.LENGTH_LONG).show()
+                        SessionManager.getInstance(v.context).saveLogin(true)
                         dismissDialog()
                         openMain(v.context)
                     }, 500)
@@ -90,5 +93,19 @@ class LoginViewModel @Inject constructor(private val loginDao: LoginDao) : BaseV
     private fun openMain(context: Context) {
         context.startActivity(Intent(context, MainActivity::class.java))
         (context as AppCompatActivity).finish()
+    }
+
+
+    fun showCountryList(v: View) {
+        dismissDialog()
+        val dialogBuilder = AlertDialog.Builder(v.context)
+        val statesList = v.resources.getStringArray(R.array.countries)
+        dialogBuilder.setTitle(R.string.select)
+        dialogBuilder.setItems(statesList
+        ) { _, which ->
+            countryValue.value = statesList[which]
+        }
+        dialog = dialogBuilder.create()
+        dialog?.show()
     }
 }

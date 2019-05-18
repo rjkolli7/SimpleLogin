@@ -3,6 +3,7 @@ package com.app.simplelogin.network.model
 import androidx.room.Entity
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 //{
 //    "id": 1,
@@ -30,33 +31,33 @@ import com.google.gson.annotations.SerializedName
 data class User(
     @SerializedName("id")
     @Expose
-    private val id: Int? = null,
+    val id: Int? = null,
 
     @SerializedName("name")
     @Expose
-    private val name: String? = null,
+    val name: String? = null,
 
     @SerializedName("username")
     @Expose
-    private val username: String? = null,
+    val username: String? = null,
 
     @SerializedName("email")
     @Expose
-    private val email: String? = null,
+    val email: String? = null,
 
     @SerializedName("address")
     @Expose
-    private val address: Address? = null,
+    val address: Address? = null,
 
     @SerializedName("phone")
     @Expose
-    private val phone: String? = null,
+    val phone: String? = null,
 
     @SerializedName("website")
     @Expose
-    private val website: String? = null,
+    val website: String? = null,
 
     @SerializedName("company")
     @Expose
-    private val company: Company? = null
-)
+    val company: Company? = null
+) : Serializable

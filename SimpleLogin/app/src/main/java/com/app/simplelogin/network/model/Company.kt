@@ -11,13 +11,13 @@ import com.google.gson.annotations.SerializedName
 data class Company(
     @SerializedName("name")
     @Expose
-    private val name: String? = null,
+    val name: String? = null,
 
     @SerializedName("catchPhrase")
     @Expose
-    private val catchPhrase: String? = null,
+    val catchPhrase: String? = null,
 
     @SerializedName("bs")
     @Expose
-    private val bs: String? = null
+    val bs: String? = null
 )

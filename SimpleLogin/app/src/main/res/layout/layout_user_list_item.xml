@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <variable name="model"
+                  type="com.app.simplelogin.ui.main.user.viewmodel.UserDetailsViewModel"/>
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/user_list_item_parent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:tag="@{model.getUserDetails()}"
+            app:onViewClickListener="@{model.onItemClickListener}"
             android:background="@android:color/white">
 
         <androidx.appcompat.widget.AppCompatTextView
@@ -12,10 +17,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/_8sdp"
-                android:paddingTop="@dimen/_5sdp"
-                android:paddingBottom="@dimen/_5sdp"
+                android:layout_marginLeft="@dimen/_12sdp" android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_12sdp" android:layout_marginRight="@dimen/_12sdp"
                 android:textColor="@android:color/black"
-                android:textSize="@dimen/_14ssp"
+                android:textAppearance="?android:attr/textAppearanceListItem"
+                android:text="@{model.getUserDetails().name}"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"/>
 
@@ -23,10 +29,12 @@
                 android:id="@+id/item_user_email_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingTop="@dimen/_5sdp"
                 android:paddingBottom="@dimen/_5sdp"
-                android:textColor="@color/appColorGrey"
-                android:textSize="@dimen/_12ssp"
+                android:layout_marginLeft="@dimen/_12sdp" android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginEnd="@dimen/_12sdp" android:layout_marginRight="@dimen/_12sdp"
+                android:textColor="@color/appColorBlack50"
+                android:text="@{model.getUserDetails().email.toLowerCase()}"
+                android:textAppearance="?android:attr/textAppearanceListItemSmall"
                 app:layout_constraintTop_toBottomOf="@id/item_user_name_tv"
                 app:layout_constraintStart_toStartOf="parent"/>
 

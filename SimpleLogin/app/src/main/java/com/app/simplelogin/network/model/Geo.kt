@@ -10,9 +10,9 @@ import com.google.gson.annotations.SerializedName
 data class Geo(
     @SerializedName("lat")
     @Expose
-    private val lat: String? = null,
+    val lat: String? = null,
 
     @SerializedName("lng")
     @Expose
-    private val lng: String? = null
+    val lng: String? = null
 )

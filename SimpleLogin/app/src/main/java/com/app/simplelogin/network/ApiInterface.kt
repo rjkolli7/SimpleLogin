@@ -9,6 +9,6 @@ import javax.inject.Singleton
 interface ApiInterface {
 
     @GET("/users/")
-    fun users(): Single<User>
+    fun users(): Single<List<User>>
 
 }
