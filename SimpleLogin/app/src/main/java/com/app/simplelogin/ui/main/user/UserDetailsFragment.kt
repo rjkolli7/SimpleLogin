@@ -8,10 +8,12 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.app.simplelogin.R
 import com.app.simplelogin.databinding.FragmentUserDetailsBinding
 import com.app.simplelogin.di.injector.Injectable
 import com.app.simplelogin.network.model.User
+import com.app.simplelogin.testing.OpenForTesting
 import com.app.simplelogin.ui.main.user.viewmodel.UserDetailsViewModel
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
@@ -24,6 +26,7 @@ import com.google.android.gms.maps.model.MarkerOptions
 import kotlinx.android.synthetic.main.fragment_user_details.*
 import javax.inject.Inject
 
+@OpenForTesting
 class UserDetailsFragment : Fragment(), Injectable, OnMapReadyCallback {
 
     @Inject
@@ -83,4 +86,9 @@ class UserDetailsFragment : Fragment(), Injectable, OnMapReadyCallback {
             map.moveCamera(cu)
         }
     }
+
+    /**
+     * Created to be able to override in tests
+     */
+    fun navController() = findNavController()
 }

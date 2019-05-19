@@ -28,6 +28,7 @@ class LoginViewModel @Inject constructor(private val loginDao: LoginDao) : BaseV
     var email: String? = null
 
     var countryValue: MutableLiveData<String> = MutableLiveData()
+    var isTesting: Boolean = false
 
     fun passwordTextWatcher(): TextWatcher {
         return object : TextWatcher {
@@ -50,7 +51,8 @@ class LoginViewModel @Inject constructor(private val loginDao: LoginDao) : BaseV
     }
 
     fun onLoginButtonClick(): View.OnClickListener = View.OnClickListener { v ->
-        dismissKeyboard(v.context, v.windowToken)
+        if(!isTesting)
+            dismissKeyboard(v.context, v.windowToken)
         if (isValid(v.context)) {
             doLogin(v.context, false)
         }

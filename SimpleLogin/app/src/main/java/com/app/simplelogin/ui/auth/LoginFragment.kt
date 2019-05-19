@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import com.app.simplelogin.R
 import com.app.simplelogin.databinding.FragmentLoginBinding
 import com.app.simplelogin.di.injector.Injectable
@@ -39,4 +40,9 @@ class LoginFragment : Fragment(), Injectable {
         binding.lifecycleOwner = this
         binding.executePendingBindings()
     }
+
+    /**
+     * Created to be able to override in tests
+     */
+    fun navController() = findNavController()
 }

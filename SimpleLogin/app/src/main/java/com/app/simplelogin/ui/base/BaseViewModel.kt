@@ -1,6 +1,5 @@
 package com.app.simplelogin.ui.base
 
-import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.view.View
@@ -21,7 +20,7 @@ import java.lang.NullPointerException
 @OpenForTesting
 class BaseViewModel : ViewModel() {
 
-    var dialog: Dialog? = null
+    var dialog: AlertDialog? = null
 
     var disposable: CompositeDisposable = CompositeDisposable()
 

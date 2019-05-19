@@ -8,15 +8,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.simplelogin.R
 import com.app.simplelogin.databinding.FragmentUsersBinding
 import com.app.simplelogin.di.injector.Injectable
+import com.app.simplelogin.testing.OpenForTesting
 import com.app.simplelogin.ui.main.user.viewmodel.UserListViewModel
 import kotlinx.android.synthetic.main.fragment_users.*
 import javax.inject.Inject
 
+@OpenForTesting
 class UserListFragment : Fragment(), Injectable {
 
     @Inject
@@ -64,4 +67,9 @@ class UserListFragment : Fragment(), Injectable {
         super.onDestroy()
         model.dispose()
     }
+
+    /**
+     * Created to be able to override in tests
+     */
+    fun navController() = findNavController()
 }

@@ -2,6 +2,7 @@ package com.app.simplelogin.network.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 //{
 //    "name": "Romaguera-Crona",
@@ -20,4 +21,4 @@ data class Company(
     @SerializedName("bs")
     @Expose
     val bs: String? = null
-)
+) : Serializable

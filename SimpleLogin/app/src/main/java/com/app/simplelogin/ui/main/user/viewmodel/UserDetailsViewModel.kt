@@ -17,11 +17,13 @@ class UserDetailsViewModel @Inject constructor() : BaseViewModel() {
     val company: MutableLiveData<String> = MutableLiveData()
     val geo: MutableLiveData<String> = MutableLiveData()
 
-    fun bind(user: User) {
-        userDetails.value = user
-        setAddress()
-        setCompany()
-        setGeo()
+    fun bind(user: User?) {
+        user?.let {u ->
+            userDetails.value = u
+            setAddress()
+            setCompany()
+            setGeo()
+        }
     }
 
     fun getUserDetails(): MutableLiveData<User> {

@@ -2,6 +2,7 @@ package com.app.simplelogin.network.model
 
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 //{
 //    "street": "Kulas Light",
@@ -33,4 +34,4 @@ data class Address(
     @SerializedName("geo")
     @Expose
     val geo: Geo? = null
-)
+): Serializable
