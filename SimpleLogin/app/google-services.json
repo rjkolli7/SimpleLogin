@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "817767117425",
+    "firebase_url": "https://mapgeofencing-1544432805994.firebaseio.com",
+    "project_id": "mapgeofencing-1544432805994",
+    "storage_bucket": "mapgeofencing-1544432805994.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:817767117425:android:911c464ef30ddf21",
+        "android_client_info": {
+          "package_name": "com.app.simplelogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "817767117425-9a8f12m76dsbltr02a18cm6gu0c1qa90.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBGmucSoRIcH-YGXoeGPKmfvZ8fwveATfY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "817767117425-9a8f12m76dsbltr02a18cm6gu0c1qa90.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
